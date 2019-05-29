@@ -3,6 +3,7 @@
   <head>
     <title>เชื่อมต่อ TCP socket หรือเปิด TCP socket ด้วยคำสั่ง nc</title>
     <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>เชื่อมต่อ TCP socket หรือเปิด TCP socket ด้วยคำสั่ง nc</h1>
@@ -12,17 +13,13 @@
     <h2>เปิด TCP Socket</h2>
     <p>
       วิธีเปิด TCP Socket ง่ายมากๆ ให้เราสั่งแค่นี้
-      <pre>
-	<code>nc -l 1234</code>
-      </pre>
+      <pre><code>nc -l 1234</code></pre>
       คือสั่ง nc ตามด้วย option -l (ลบแอล) แล้วตามด้วยหมายเลข port ที่ต้องการเปิด หลังจากนั้น
     </p>
     <h2>เชื่อมต่อไปที่ TCP socket</h2>
     <p>
       วิธีใช้ nc เพื่อต่อไปยัง TCP socket อื่นๆที่เปิดให้สั่งแค่แบบนี้
-      <pre>
-	<code>nc 127.0.0.1 1234</code>
-      </pre>
+      <pre><code>nc 127.0.0.1 1234</code></pre>
       คือแค่สั่ง nc ตามด้วย hostname/domain/ip ของปลายทาง แล้วก็ตามด้วยหมายเลข port เพียงเท่านี้ก็พร้อมที่จะส่งข้อมูลหากันแล้วโดยเราสามารถพิมพ์ข้อความแล้ว enter ข้อมูลก็จะถูกส่งไปหาอีกฝั่ง
     </p>
     <p>วันที่ <span>2019-05-27 12:33:30</span></p>
