@@ -52,7 +52,7 @@ cd hello-grpc
     </p>
     <p>
       หลังจากนั้นสร้างไฟล์ hello.proto เพื่อกำหนด spec ของ service อยู่ภายใน directory proto ดังนี้
-      <pre><code>syntax = "proto3";
+      <pre><code>syntax = &quot;proto3&quot;;
 
 package hello;
 
@@ -83,30 +83,30 @@ message SayResponse {
       <pre><code>package main
 
 import (
-	"context"
-	"fmt"
-	"hello-grpc/hello"
-	"log"
-	"net"
+	&quot;context&quot;
+	&quot;fmt&quot;
+	&quot;hello-grpc/hello&quot;
+	&quot;log&quot;
+	&quot;net&quot;
 
-	"google.golang.org/grpc"
+	&quot;google.golang.org/grpc&quot;
 )
 
 type helloServer struct{}
 
 func (hs *helloServer) Say(ctx context.Context, in *hello.SayRequest) (*hello.SayResponse, error) {
-	return &hello.SayResponse{Message: fmt.Sprintf("Hello %s", in.Name)}, nil
+	return &amp;hello.SayResponse{Message: fmt.Sprintf(&quot;Hello %s&quot;, in.Name)}, nil
 }
 
 func main() {
-	l, err := net.Listen("tcp", ":50051")
+	l, err := net.Listen(&quot;tcp&quot;, &quot;:50051&quot;)
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		log.Fatalf(&quot;failed to listen: %v&quot;, err)
 	}
 	s := grpc.NewServer()
-	hello.RegisterHelloServer(s, &helloServer{})
+	hello.RegisterHelloServer(s, &amp;helloServer{})
 	if err := s.Serve(l); err != nil {
-		log.Fatalf("failed to serve: %v", err)
+		log.Fatalf(&quot;failed to serve: %v&quot;, err)
 	}
 }</code></pre>
     </p>
@@ -132,24 +132,24 @@ func main() {
       <pre><code>package main
 
 import (
-	"context"
-	"fmt"
-	"hello-grpc/hello"
-	"log"
+	&quot;context&quot;
+	&quot;fmt&quot;
+	&quot;hello-grpc/hello&quot;
+	&quot;log&quot;
 
-	"google.golang.org/grpc"
+	&quot;google.golang.org/grpc&quot;
 )
 
 func main() {
-	clientConn, err := grpc.DialContext(context.Background(), ":50051", grpc.WithInsecure())
+	clientConn, err := grpc.DialContext(context.Background(), &quot;:50051&quot;, grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("failed to dail: %v", err)
+		log.Fatalf(&quot;failed to dail: %v&quot;, err)
 	}
 
 	client := hello.NewHelloClient(clientConn)
-	sayResp, err := client.Say(context.Background(), &hello.SayRequest{Name: "Por"})
+	sayResp, err := client.Say(context.Background(), &amp;hello.SayRequest{Name: &quot;Por&quot;})
 	if err != nil {
-		log.Fatalf("failed to say: %v", err)
+		log.Fatalf(&quot;failed to say: %v&quot;, err)
 	}
 	fmt.Println(sayResp.Message)
 }</code></pre>
