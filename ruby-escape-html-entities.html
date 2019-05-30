@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ruby: Escape HTML Entities</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Ruby: Escape HTML Entities</h1>
+    <p>
+      เวลาที่เราต้องเอาโค้ดมาแสดงที่หน้า HTML เนี่ย บางครั้งสัญลักษณ์ที่ใช้ในโค้ดนั้นก็ดันเป็นสัญลักษณ์ที่ถูกใช้ใน syntax ของ HTML เอง ซึ่งอักษรเหล่านี้เรียกว่า <a href="https://www.w3schools.com/html/html_entities.asp">HTML Entities</a> ดังนั้นเวลาจะเขียนสัญลักษณ์พวกนี้ต้องถูกเขียนอยู่ในรูปแบบอื่นที่เข้ารหัสไว้ เช่นจะเขียนเครื่องหมายน้อยกว่า ก็ต้องเขียนเป็น &amp;lt; จะเขียนเครื่องหมายมากกว่าก็ต้องเขียนเป็น &amp;gt;
+    </p>
+
+    <p>
+      สำหรับภาษา <a href="https://www.ruby-lang.org">Ruby</a> นั่นมี class CGI ที่มี method escapeHTML ให้เราแปลงจากสัญลักษณ์ที่เขียนปกติไปเป็นรูปแบบ HTML Entities และมี unescapeHTML เพื่อแปลงกลับ
+    </p>
+    <p>
+      ตัวอย่าง escapeHTML คือใช้แบบนี้
+      <pre><code>require "cgi";
+puts CGI.escapeHTML('&lt;div&gt;Hello&lt;/div&gt;');
+      </code></pre>
+      ก็จะถูกแปลงเป็น
+      <pre><code>&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</code></pre>
+    </p>
+    <p>
+      ตัวอย่าง unescapeHTML คือใช้แบบนี้
+      <pre><code>require "cgi";
+puts CGI.unescapeHTML('&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;');
+      </code></pre>
+      ก็จะถูกแปลงกลับเป็น
+      <pre><code>&lt;div&gt;Hello&lt;/div&gt;</code></pre>
+    </p>
+    <footer>
+      <p>วันที่ <span>2019-05-31 00:48:35</span></p>
+      <a href="index.html">Index</a>
+    </footer>
+  </body>
+</html>
