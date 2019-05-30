@@ -12,4 +12,5 @@ pre > code {
     border: 1px solid #999;
     display: block;
     padding: 20px;
+    word-wrap: break-word;
 }
