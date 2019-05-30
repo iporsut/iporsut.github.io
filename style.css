@@ -2,8 +2,12 @@ body {
     line-height: 140%;
     margin: 50px;
 }
-code {font-size: 120%;}
-pre code {
+
+code {
+    font-size: 120%;
+}
+
+pre > code {
     background-color: #eee;
     border: 1px solid #999;
     display: block;
