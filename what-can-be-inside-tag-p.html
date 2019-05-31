@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML: มีอะไรอยู่ได้บ้างภายใน tag &lt;p&gt;</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>HTML: มีอะไรอยู่ได้บ้างภายใน tag &lt;p&gt;</h1>
+    <img alt="tag p error" src="tag-p-error.png" width="100%" />
+    <p>
+      จากรูปจะเห็นว่าผมมี tag &lt;p&gt; เปิดในบรรทัด 18 และ tag &lt;/p&gt; ในบรรทัดที่ 33 แต่ว่า browser กลับบอกว่า tag ปิดนั้น error เพราะไม่ tag เปิดซะอย่างนั้น
+    </p>
+    <p>
+      ผมจึงไปค้นมาว่าทำไม browser ถึงบอกแบบนี้ ไปเจอมาจากเว็บของ MDN (Mozilla Developer Network) <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p</a>
+    </p>
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p">
+      Paragraphs are block-level elements, and notably will automatically close if another block-level element is parsed before the closing &lt;/p&gt; tag.
+    </blockquote>
+    <p>
+      นั่นคือ tag &lt;p&gt; เป็น block-level elements ซึ่ง HTML elements นั้นแบ่งได้หลักๆสองกลุ่มคือ <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements">block-level element</a> กับ <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements">inline-level element</a> และตาม document ของ tag p นั้น จะถือว่า tag โดนปิดอัตโนมัติ ถ้าเจอ block-level elements ก่อนที่จะเจอ tag ปิดนั่นเอง
+    </p>
+    <p>
+      ซึ่งถ้าดูในรูปจะพบว่าผมมี tag &lt;pre&gt; แทรกมา ซึ่งมันเป็น block-level element เหมือนกัน ทำให้ browser มองว่า tag p นั้นปิดไปก่อนแล้วพอเจอ tag &lt;/p&gt; ก็เลยมองว่าปิดโดยไม่มีการเปิดมาก่อนนั่นเอง
+    </p>
+
+    <h2>สรุป</h2>
+    <p>
+      จะพบว่ารายละเอียดเล็กๆน้อยๆของ HTML แต่ละ tag นั้นมีอยู่ใน document ให้เราอ่านหมดแล้ว ซึ่งช่วยให้เราใช้แต่ละ tag ได้สื่อความหมายอย่างที่มันถูกออกแบบมาจริงๆขึ้นมาก โดยที่ไม่ใช่แค่จับ tag ซ้อนๆกันไปมา ซึ่งจริงๆก็มีอะไรให้อ่านอีกเยอะเลยเกี่ยวกับ HTML ลองอ่านดูได้ในเว็บ MDN นะครับ
+    </p>
+    <footer>
+      <p>วันที่ <span>2019-05-31 22:35:00</span></p>
+      <a href="index.html">Index</a>
+    </footer>
+  </body>
+</html>

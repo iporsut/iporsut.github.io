@@ -3,11 +3,14 @@
   <head>
     <title></title>
     <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1></h1>
     <p></p>
-    <p>วันที่ <span>2019-05-26 12:33:30</span></p>
-    <a href="index.html">Index</a>
+    <footer>
+      <p>วันที่ <span>2019-05-26 12:33:30</span></p>
+      <a href="index.html">Index</a>
+    </footer>
   </body>
 </html>
