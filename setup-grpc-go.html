@@ -19,40 +19,51 @@
     <h3>ติดตั้ง Go</h3>
     <p>
       ผมลง Go ไว้แล้ว เป็น version 1.12.5 จริงๆถ้าไม่มีผมก็ลงผ่าน brew ได้อยู่ดีแบบนี้
-      <pre><code>brew install go</code></pre>
+    </p>
+    <pre><code>brew install go</code></pre>
+    <p>
       ซึ่ง version นี้รองรับ go module ด้วยทำให้เริ่มโปรเจคง่ายขึ้นเลย
     </p>
+
     <h3>ติดตั้ง protoc</h3>
-    <p>ผมใช้ macOS และใช้ <a href="https://brew.sh">brew</a> เป็นตัวช่วยในการจัดการติดตั้งโปรแกรมต่างๆ ดังนั้นผมเลยเริ่มจากการติดตั้ง protoc ผ่าน brew ดังนี้
-      <pre><code>brew install protobuf</code></pre>
+    <p>
+      ผมใช้ macOS และใช้ <a href="https://brew.sh">brew</a> เป็นตัวช่วยในการจัดการติดตั้งโปรแกรมต่างๆ ดังนั้นผมเลยเริ่มจากการติดตั้ง protoc ผ่าน brew ดังนี้
     </p>
+    <pre><code>brew install protobuf</code></pre>
     <h3>ติดตั้ง protoc-gen-go</h3>
     <p>
       ส่วนตัว protoc-gen-go มันเขียนด้วย Go จะเลือกใช้ go get ก็ได้ แต่ใน brew มันก็มี package นี้ให้ลงเหมือนกัน ผมเลยใช้วิธีลงผ่าน brew ดังนี้
-      <pre><code>brew install protoc-gen-go</code></pre>
+    </p>
+    <pre><code>brew install protoc-gen-go</code></pre>
+    <p>
       (ป.ล. วันที่เขียน blog ตัวติดตั้งมันยังมี bug มีคนเปิด PR แล้วคงแก้ในอีกไม่กี่วัน)
       หรือใช้วิธีติดตั้งผ่าน go get ดังนี้
-      <pre><code>go get github.com/golang/protobuf/protoc-gen-go</code></pre>
-      ถ้าใคร enable GO111MODULE=on ก็สามารถเลือก version ได้ด้วยแบบนี้
-      <pre><code>go get github.com/golang/protobuf/protoc-gen-go@v1.3.1</code></pre>
     </p>
+    <pre><code>go get github.com/golang/protobuf/protoc-gen-go</code></pre>
+    <p>
+      ถ้าใคร enable GO111MODULE=on ก็สามารถเลือก version ได้ด้วยแบบนี้
+    </p>
+    <pre><code>go get github.com/golang/protobuf/protoc-gen-go@v1.3.1</code></pre>
     <h3>สร้าง go module ใหม่</h3>
     <p>
       ต่อไปก็เริ่มเขียนโค้ดได้ละ ผมจะยกตัวอย่างโดยสร้างโค้ด 2 โปรแกรม ตัวนึงแทน server ตัวนึงแทน client โดยทั้งสองอยู่ภายใน module ชื่อ hello-grpc สร้าง directory ให้ก่อนเลยแบบนี้ แล้วก็ cd เข้าไป
-      <pre><code>mkdir hello-grpc
-cd hello-grpc
-      </code></pre>
-      หลังจากนั้นใช้คำสั่ง แบบนี้เพื่อเริ่มสร้าง go module ที่ชื่อ hello-grpc
-      <pre><code>go mod init hello-grpc</code></pre>
     </p>
+    <pre><code>mkdir hello-grpc
+cd hello-grpc
+    </code></pre>
+    <p>
+      หลังจากนั้นใช้คำสั่ง แบบนี้เพื่อเริ่มสร้าง go module ที่ชื่อ hello-grpc
+    </p>
+    <pre><code>go mod init hello-grpc</code></pre>
     <h3>สร้าง proto file เพื่อกำหนด spec service</h3>
     <p>
       เริ่มจากสร้าง directory ชื่อ hello แบบนี้
-      <pre><code>mkdir hello</code></pre>
     </p>
+    <pre><code>mkdir hello</code></pre>
     <p>
       หลังจากนั้นสร้างไฟล์ hello.proto เพื่อกำหนด spec ของ service อยู่ภายใน directory proto ดังนี้
-      <pre><code>syntax = &quot;proto3&quot;;
+    </p>
+    <pre><code>syntax = &quot;proto3&quot;;
 
 package hello;
 
@@ -67,20 +78,26 @@ message SayRequest {
 message SayResponse {
   string message = 1;
 }</code></pre>
+    <p>
       ส่วน syntax ที่เห็นคือเป็นของ Protocal Buffer หลักๆ ก็กำหนด service ชื่อ Hello มี rpc method หนึ่งอันชื่อ Say ที่รับ SayRequest message แล้วตอบกลับด้วย SayResponse message หลังจากนั้นก็กำหนด SayRequest ว่ามี field หนึ่งชื่อ name ส่วน SayResponse ตอบกับด้วย 1 field ชื่อ message
     </p>
     <h3>Generate code ด้วย protoc และ protoc-gen-go</h3>
     <p>
       จากนั้นเราจะต้องใช้ protoc ร่วมกับ protoc-gen-go เพื่อ generate โค้ด go ขึ้นมา โดยให้ cd เข้าไปใน directory hello ที่สร้างเมื่อกี้ก่อน แล้วสั่ง
-      <pre><code>protoc --go_out=plugins=grpc:. hello.proto</code></pre>
+    </p>
+    <pre><code>protoc --go_out=plugins=grpc:. hello.proto</code></pre>
+    <p>
       ซึ่งเราจะได้โค้ดที่ถูก generate ออกมาชื่อไฟล์ hello.pb.go
     </p>
     <h3>สร้างโค้ดฝั่ง Server</h3>
     <p>
       ใช้ cd ถอยกลับไปที่ directory hello-grpc แล้วสร้าง directory ใหม่ชื่อ server แบบนี้
-      <pre><code>mkdir server</code></pre>
+    </p>
+    <pre><code>mkdir server</code></pre>
+    <p>
       จากนั้น cd เข้าไปที่ server แล้วสร้างไฟล์ main.go โดยมีโค้ดดังนี้
-      <pre><code>package main
+    </p>
+    <pre><code>package main
 
 import (
 	&quot;context&quot;
@@ -109,9 +126,9 @@ func main() {
 		log.Fatalf(&quot;failed to serve: %v&quot;, err)
 	}
 }</code></pre>
-    </p>
     <p>
-      ผมไม่ลงรายละเอียดมากนะว่าโค้ดแต่ละบรรทัดทำอะไรบ้าง เอาเป็นว่า protoc จะ generate โค้ดที่มี interface ตามชื่อ service ใน proto เช่น service Hello ก็จะได้ชื่อ interface HelloServer จะเห็นว่ามี Server เป็น suffix</p>
+      ผมไม่ลงรายละเอียดมากนะว่าโค้ดแต่ละบรรทัดทำอะไรบ้าง เอาเป็นว่า protoc จะ generate โค้ดที่มี interface ตามชื่อ service ใน proto เช่น service Hello ก็จะได้ชื่อ interface HelloServer จะเห็นว่ามี Server เป็น suffix
+    </p>
     <p>
       โค้ดเราต้องสร้าง type ใหม่ขึ้นมาแล้ว implement interface นั้นๆ เช่น ผมสร้าง type helloServer ขึ้นมาแล้ว implement method Say
     </p>
@@ -127,9 +144,12 @@ func main() {
     <h3>สร้างโค้ดฝั่ง Client</h3>
     <p>
       ใช้ cd ถอยกลับไปที่ directory hello-grpc แล้วสร้าง directory ใหม่ชื่อ server แบบนี้
-      <pre><code>mkdir client</code></pre>
+    </p>
+    <pre><code>mkdir client</code></pre>
+    <p>
       จากนั้น cd เข้าไปที่ client แล้วสร้างไฟล์ main.go โดยมีโค้ดดังนี้
-      <pre><code>package main
+    </p>
+    <pre><code>package main
 
 import (
 	&quot;context&quot;
@@ -153,7 +173,6 @@ func main() {
 	}
 	fmt.Println(sayResp.Message)
 }</code></pre>
-    </p>
     <p>
       ฝั่ง client ขั้นตอนการเรียกใช้ method Say ของ Hello ที่ server ให้เราสร้าง grpc.ClientConn ขึ้นมาก่อนด้วย grpc.DialContext พร้อมระบุ context, address (hostname:port) และใส่ option grpc.WithInsecure() เพิ่มไปหน่อยเพราะตอนนี้เรายังไม่ได้ทำเรื่อง tls เรียกวิธีนี้ไปก่อนสำหรับทดสอบตอนนี้
     </p>

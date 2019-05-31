@@ -16,20 +16,24 @@
     </p>
     <p>
       ตัวอย่าง escapeHTML คือใช้แบบนี้
-      <pre><code>require "cgi";
-puts CGI.escapeHTML('&lt;div&gt;Hello&lt;/div&gt;');
-      </code></pre>
-      ก็จะถูกแปลงเป็น
-      <pre><code>&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</code></pre>
     </p>
+    <pre><code>require "cgi";
+puts CGI.escapeHTML('&lt;div&gt;Hello&lt;/div&gt;');
+    </code></pre>
+    <p>
+      ก็จะถูกแปลงเป็น
+    </p>
+    <pre><code>&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;</code></pre>
     <p>
       ตัวอย่าง unescapeHTML คือใช้แบบนี้
-      <pre><code>require "cgi";
-puts CGI.unescapeHTML('&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;');
-      </code></pre>
-      ก็จะถูกแปลงกลับเป็น
-      <pre><code>&lt;div&gt;Hello&lt;/div&gt;</code></pre>
     </p>
+    <pre><code>require "cgi";
+puts CGI.unescapeHTML('&amp;lt;div&amp;gt;Hello&amp;lt;/div&amp;gt;');
+    </code></pre>
+    <p>
+      ก็จะถูกแปลงกลับเป็น
+    </p>
+    <pre><code>&lt;div&gt;Hello&lt;/div&gt;</code></pre>
     <footer>
       <p>วันที่ <span>2019-05-31 00:48:35</span></p>
       <a href="index.html">Index</a>

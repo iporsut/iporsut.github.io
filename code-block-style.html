@@ -9,15 +9,16 @@
     <h1>เพิ่ม CSS เพื่อให้แสดง block ของ source code อย่างง่ายๆ</h1>
     <p>
       เนื่องจากตอนนี้เวลาแสดง code ใน page ผมใช้ของง่ายๆคือ tag pre และ code เช่น
-      <pre><code>&lt;pre&gt;&lt;code&gt;puts &quot;Hello, World&quot;&lt;/code&gt;&lt;/pre&gt;</code></pre>
     </p>
+    <pre><code>&lt;pre&gt;&lt;code&gt;puts &quot;Hello, World&quot;&lt;/code&gt;&lt;/pre&gt;</code></pre>
     <p>
       ซึ่งมันจะ render ออกมาดิบๆ แบบนี้
-      <pre><code>puts &quot;Hello, World&quot;</code></pre>
     </p>
+    <pre><code>puts &quot;Hello, World&quot;</code></pre>
     <p>
       ผมยังเลยลองปรับ style ให้กับแต่ละ pre > code อีกนิดนึงโดยใช้ CSS แบบนี้
-      <pre><code>body {
+    </p>
+    <pre><code>body {
     line-height: 140%;
     margin: 50px;
 }
@@ -30,7 +31,6 @@ pre &gt; code {
     padding: 20px;
     word-wrap: break-word;
 }</code></pre>
-    </p>
     <p>
       พอได้ CSS แบบนี้ก็ทำให้ตรงส่วนที่เป็นโค้ดอ่านง่ายขึ้นมาหน่อย ซึ่งก็ปรับง่ายๆแค่เปลี่ยนสี background-color ปรับ display ให้มันเป็น block แล้วปรับ padding ระยะระหว่าง text ข้างในกับขอบของ block แล้วก็ตีเส้นกรอบนิดหน่อย
     </p>
