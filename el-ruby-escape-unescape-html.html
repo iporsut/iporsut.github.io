@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <title>สร้าง elisp ฟังก์ชันเพื่อ Escape HTML Entities โดยเรียกใช้ Ruby</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>สร้าง elisp ฟังก์ชันเพื่อ Escape HTML Entities โดยเรียกใช้ Ruby</h1>
+    <img alt="example use function" src="el-ruby-escape-unescape-html.gif" />
+    <p>
+      ผมใช้ <a href="https://www.gnu.org/software/emacs/">Emacs</a> เป็นเครื่องมือหลักในการเขียนโค้ด รวมทั้งที่ใช้เขียน blog post นี้อยู่ด้วย ซึ่ง เราสามารถเพิ่มความสามารถต่างๆให้ Emacs ได้โดยการเขียน <a href="https://en.wikipedia.org/wiki/Emacs_Lisp">elisp</a> ซึ่งเป็นภาษาตระกูล <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">LISP</a> ภาษาหนึ่งซึ่งติดมากับตัว Emacs เลย
+    </p>
+    <p>
+      ผมอยากได้ฟีเจอร์นึงคือแปลงโค้ด HTML โดย escape HTML Entities ใน text ที่ผมเลือกเอาไว้อยู่ ซึ่งผมสามารถเขียน elisp ฟังก์ชันเพื่อช่วยแปลงได้ เพราะว่าผมพยายามหาแล้วมีคนเขียนฟังก์ชันไว้แล้วหลายคน แต่ไม่ถูกใจผม ผมอยากได้แบบเดียวกันกับที่ <a href="ruby-escape-html-entities.html">Ruby CGI.escape</a> ทำซึ่งผมเขียนไว้ในโพสต์ก่อนหน้านี้
+    </p>
+    <p>
+      ผมเลยได้ท่านี้มาคือ เขียน elisp ฟังก์ชันให้ส่งโค้ด Ruby ไปทำงานแล้วเอาผลลัพธ์กลับมา หน้าตา source code ของ elisp ฟังก์ชันเลยออกมาเป็นแบบนี้
+    </p>
+    <pre><code>(defun escape-html (start end)
+  (interactive &quot;r&quot;)
+  (if (use-region-p)
+      (let ((regionp (buffer-substring start end)))
+	(delete-region start end)
+	(call-process-region regionp nil &quot;ruby&quot; nil t nil &quot;-e&quot; &quot;# encoding: utf-8
+require &#39;cgi&#39;
+print CGI.escapeHTML(ARGF.read)&quot;))))</code></pre>
+    <p>
+      คราวๆคือฟังก์ชันนี้จะรับค่าตำแหน่งเริ่มต้น และ สิ้นสุดที่ของ region ที่ถูกเลือกไว้อยู่ แล้วผมจะใช้ function buffer-substring เพื่อดึง text ตรงนั้นมาเก็บไว้ในตัวแปร regionp
+    </p>
+    <p>
+      หลังจากนั้นจะลบ text ตรง region นั้นทิ้งออกไปจาก buffer ก่อน
+    </p>
+    <p>
+      แล้วใช้ call-process-region เพื่อส่ง regionp ไปทาง standard input ให้กับ Ruby โดยผมเขียนโค้ด Ruby ลงไปตรงๆผ่าน option -e ของ Ruby โค้ดตรงนั้นคือ
+    </p>
+    <pre><code># encoding: utf-8
+require &#39;cgi&#39;
+print CGI.escapeHTML(ARGF.read)</code></pre>
+    <p>
+      ซึ่งผมใช้ ARGF.read เพื่อรับค่าจาก standard input นั่นเอง
+    </p>
+    <p>
+      จากโค้ด escape-html ข้างบน เราก็เอามาเขียน unescape-html ได้เหมือนกันเปลี่ยนแค่ตอนเรียน method ของ CGI แค่นั้นเองแบบนี้
+    </p>
+    <pre><code>(defun unescape-html (start end)
+  (interactive &quot;r&quot;)
+  (if (use-region-p)
+      (let ((regionp (buffer-substring start end)))
+	(delete-region start end)
+	(call-process-region regionp nil &quot;ruby&quot; nil t nil &quot;-e&quot; &quot;# encoding: utf-8
+require &#39;cgi&#39;
+print CGI.unescapeHTML(ARGF.read)&quot;))))</code></pre>
+    <footer>
+      <p>วันที่ <span>2019-06-01 14:31:45</span></p>
+      <a href="index.html">Index</a>
+    </footer>
+  </body>
+</html>
