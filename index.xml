@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Weerasak Chongnguluam</title>
+    <link>https://iporsut.github.io/</link>
+    <description>Recent content on Weerasak Chongnguluam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 May 2019 23:50:10 +0700</lastBuildDate>
+    
+	<atom:link href="https://iporsut.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ติดตั้งของเพื่อสร้าง GRPC service ด้วย Go</title>
+      <link>https://iporsut.github.io/posts/setup-grpc-go/</link>
+      <pubDate>Wed, 29 May 2019 23:50:10 +0700</pubDate>
+      
+      <guid>https://iporsut.github.io/posts/setup-grpc-go/</guid>
+      <description>GRPC เป็น RPC (Remote Procedure Call) Framework ที่ช่วยให้เราสร้าง service เพื่อให้คนอื่นเรียกใช้งานได้เนี่ยแหละ ทีนี้ตัว runtime มันก็มีออกมาให้ใช้งานร่วมกับหลายๆภาษา แต่วันนี้จะลองลงเครื่องมือที่จำเป็นเบื้องต้นเพื่อให้ลองใช้ได้ สร้าง service ง่ายๆเช่นพ่น Hello World กลับออกไป</description>
+    </item>
+    
+    <item>
+      <title>เชื่อมต่อ TCP socket หรือเปิด TCP socket ด้วยคำสั่ง nc</title>
+      <link>https://iporsut.github.io/posts/nc/</link>
+      <pubDate>Mon, 27 May 2019 12:33:30 +0700</pubDate>
+      
+      <guid>https://iporsut.github.io/posts/nc/</guid>
+      <description>คำสั่ง nc เป็นคำสั่งที่ติดมากับ macOS (จริงๆผมว่าก็หาลงได้นะสำหรับ Linux) ที่ช่วยให้เราสามารถ connect TCP socket หรือแม้แต่เปิด TCP socket เพื่อให้คนอื่น connect เข้ามาได้</description>
+    </item>
+    
+  </channel>
+</rss>
