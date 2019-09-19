@@ -6,7 +6,7 @@
     
     <title>Weerasak Chongnguluam  | Blog</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.58.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -33,7 +33,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://iporsut.github.io/" />
 
-<meta property="og:updated_time" content="2019-06-13T18:38:36+07:00" />
+<meta property="og:updated_time" content="2019-09-19T13:46:09+07:00" />
 <meta itemprop="name" content="Blog">
 <meta itemprop="description" content="Weerasak Chongnguluam&#39;s blog">
 
@@ -146,6 +146,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/posts/ruby-enumerator-new/" class="color-inherit dim link">
+            สร้าง Enumerator ด้วย ::new method
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          สร้าง Enumerator ด้วย ::new method โดยไม่ต้องสร้าง class ใหม่เพื่อ implement each method เอง
+        </div>
+          <a href="/posts/ruby-enumerator-new/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="/posts/go-req-set-content-length/" class="color-inherit dim link">
             Go Request: อย่าลืม ContentLength ถ้าไม่ได้กำหนด Body ด้วย NewRequest
             </a>
@@ -191,40 +215,18 @@ man ls  MANPATH จริงๆแล้วคำสั่ง man จะไป�
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/ruby-sending-message-vs-calling-method/" class="color-inherit dim link">
-            Ruby: ความแตกต่างระหว่างการ ส่ง message และ เรียก method
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          เรียก method ในภาษาที่รองรับการเขียนโปรแกรมแบบ Object Oriented ส่วนใหญ่แล้วก็ให้เราสร้าง Class เพื่อเป็นพิมพ์เขียวให้การสร้าง Object ซึ่งรายละเอียดของที่อยู่ใน Class นั่นก็คือ method ที่จะเป็นพฤติกรรมที่ Object นั้นสามารถทำได้ ดังนั้นส่วนใหญ่แล้วเวลาเราเห็นโค้ดแบบนี้ เช่น
-num = str.to_i  จะหมายถึงว่าเราเรียก method to_i ของ object str
-ส่ง message แต่ในอีกมุมนึงความสำคัญของ Object Oriented นั้นไม่ได้อยู่ที่ตัว Object เอง แต่อยู่ที่การสื่อสารกันระหว่างแต่ละ Object ผ่านการส่ง message หากัน
-Alan Kay ที่เรายกให้เขาเป็นผู้ให้กำเนิดแนวคิด OOP (จริงๆแล้วก็ช่วยกันหลายคน) ได้เคยตอบเมลลิ้งลิสต์เรื่อง prototypes vs classes was: Re: Sun&rsquo;s HotSpot ซึ่งพูดถึงเรื่อง Object เอาไว้ว่า
- I&rsquo;m sorry that I long ago coined the term &ldquo;objects&rdquo; for this topic because it gets many people to focus on the lesser idea.
-        </div>
-          <a href="/posts/ruby-sending-message-vs-calling-method/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/ruby-sending-message-vs-calling-method/" class="link black dim">
+              Ruby: ความแตกต่างระหว่างการ ส่ง message และ เรียก method
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/el-ruby-escape-unescape-html/" class="link black dim">
@@ -241,12 +243,6 @@ Alan Kay ที่เรายกให้เขาเป็นผู้ให�
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="/posts/ruby-escape-html-entities/" class="link black dim">
               Ruby Escape HTML Entities
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="/posts/code-block-style/" class="link black dim">
-              เพิ่ม CSS เพื่อให้แสดง block ของ source code อย่างง่ายๆ
             </a>
           </h2>
         
