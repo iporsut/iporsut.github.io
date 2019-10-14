@@ -6,7 +6,7 @@
     
     <title>Weerasak Chongnguluam  | Blog</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.58.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -24,10 +24,12 @@
     
 
     
-      <link href="https://iporsut.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Weerasak Chongnguluam" />
-      <link href="https://iporsut.github.io/index.xml" rel="feed" type="application/rss+xml" title="Weerasak Chongnguluam" />
     
-
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Weerasak Chongnguluam" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="Weerasak Chongnguluam" />
+      
+    
+    
     <meta property="og:title" content="Blog" />
 <meta property="og:description" content="Weerasak Chongnguluam&#39;s blog" />
 <meta property="og:type" content="website" />
@@ -150,9 +152,7 @@
             สร้าง Enumerator ด้วย ::new method
             </a>
         </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          สร้าง Enumerator ด้วย ::new method โดยไม่ต้องสร้าง class ใหม่เพื่อ implement each method เอง
-        </div>
+        
           <a href="/posts/ruby-enumerator-new/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
@@ -174,10 +174,7 @@
             Go Request: อย่าลืม ContentLength ถ้าไม่ได้กำหนด Body ด้วย NewRequest
             </a>
         </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          ปกติเวลาเราต้องการยิง HTTP Request ด้วย Go เราสามารถใช้ package net/http ช่วยได้โดยใช้การสร้าง request ใหม่แล้วเรียกเมธอด Do แบบนี้
-package main import ( &quot;io&quot; &quot;log&quot; &quot;net/http&quot; &quot;os&quot; &quot;strings&quot; ) func main() { r, err := http.NewRequest( &quot;POST&quot;, &quot;https://httpbin.org/delay/1&quot;, strings.NewReader(`{&quot;say&quot;: &quot;Hello, World&quot;}`)) if err != nil { log.Fatal(err) } resp, err := http.DefaultClient.Do(r) if err != nil { log.Fatal(err) } io.Copy(os.Stdout, resp.Body) }  สิ่งที่ http.NewRequest ทำให้นอกจากจะกำหนดค่าให้ r.Body แล้วยังกำหนดค่า r.ContentLength ให้อีกด้วย โดยหาขนาดจาก body ที่เราส่งเข้าไป แต่ถ้าเกิดเราเรียก http.NewRequest โดยกำหนด body เป็น nil ไปแล้วล่ะก็ r.
-        </div>
+        
           <a href="/posts/go-req-set-content-length/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
@@ -199,13 +196,7 @@ package main import ( &quot;io&quot; &quot;log&quot; &quot;net/http&quot; &quot;
             MANPATH ลับของ Xcode
             </a>
         </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          man เป็นคำสั่งเพื่อดู manual คู่มือต่างๆของระบบ Unix หรือระบบแบบ Unix อื่นๆ ไม่ว่าจะ Linux/BSD/macOS ซึ่งเวลาใช้งานก็สั่ง man ตามด้วยชื่อคำสั่งหรือชื่อหัวข้อที่ต้องการดูเช่น
-man ls  MANPATH จริงๆแล้วคำสั่ง man จะไปค้นหาไฟล์ที่เป็นคู่มือที่อยู่ใน PATH ที่กำหนดในตัวแปร MANPAH หรืออยู่ในไฟล์ /etc/man.conf ซึ่งเราสามารถใช้คำสั่ง man &ndash;path เพื่อดูรายการของ path ที่จะถูกค้นหาได้
-จากรูปสิ่งที่วงไว้กรอบสีแดงคือ path ของ man page ต่างๆของ Xcode ปัญหามันอยู่ตรงที่ผมพยายามหา config ที่ระบุ path พวกนี้ไม่เจอเลย เลยสงสัยว่า man มันไปอ่านค่าพวกนี้มาจากไหน
-หลังจากค้นหาไปสักพักก็กระจ่างแจ้งเลย เมื่อเจอลิ้งนี้ Man pages on OSX + Xcode Developer tools
-นั่นก็คือ APPLE แก้โค้ดของ man ตัวที่ใช้กับ macOS ให้หา path ที่เกี่ยวกับ Xcode เป็น default MANPATH นั่นเอง เล่น patch โค้ดกันแบบนี้เลย แล้วในคู่คือของคำสั่ง man เองก็ดันไม่ยอมแก้เพื่ออธิบายไว้ด้วยนะ
-        </div>
+        
           <a href="/posts/xcode-manpath/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>

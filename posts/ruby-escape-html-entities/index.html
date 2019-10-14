@@ -6,7 +6,7 @@
     
     <title>Weerasak Chongnguluam  | Ruby Escape HTML Entities</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.58.2" />
+    <meta name="generator" content="Hugo 0.58.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -24,7 +24,7 @@
     
 
     
-
+    
     <meta property="og:title" content="Ruby Escape HTML Entities" />
 <meta property="og:description" content="เวลาที่เราต้องเอาโค้ดมาแสดงที่หน้า HTML เนี่ย บางครั้งสัญลักษณ์ที่ใช้ในโค้ดนั้นก็ดันเป็นสัญลักษณ์ที่ถูกใช้ใน syntax ของ HTML เอง ซึ่งอักษรเหล่านี้เรียกว่า HTML Entities ดังนั้นเวลาจะเขียนสัญลักษณ์พวกนี้ต้องถูกเขียนอยู่ในรูปแบบอื่นที่เข้ารหัสไว้ เช่นจะเขียนเครื่องหมายน้อยกว่า ก็ต้องเขียนเป็น &lt; จะเขียนเครื่องหมายมากกว่าก็ต้องเขียนเป็น &gt;
 สำหรับภาษา Ruby นั่นมี class CGI ที่มี method escapeHTML ให้เราแปลงจากสัญลักษณ์ที่เขียนปกติไปเป็นรูปแบบ HTML Entities และมี unescapeHTML เพื่อแปลงกลับ
@@ -141,6 +141,7 @@ require &quot;cgi&quot;; puts CGI.unescapeHTML(&#39;&amp;lt;div&amp;gt;Hello&amp
         POSTS
       </p>
       <h1 class="f1 athelas mb1">Ruby Escape HTML Entities</h1>
+      
       
       <time class="f6 mv4 dib tracked" datetime="2019-05-31T04:48:35&#43;07:00">May 31, 2019</time>
       
